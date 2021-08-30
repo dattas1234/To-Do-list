@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-
+// import { FaStarOfDavid} from 'react-icons/fa';
 const tasks = {
   paddingLeft: "25%",
   paddingRight: "25%"
@@ -12,6 +12,8 @@ const faintRed = "rgb(245,102,66)";
 export default function App() {
   const [task, setTask] = useState([]);
   const [newTask, setNewTask] = useState("");
+  // const [flag, setFlag]=useState([]);
+  // const [MarkImportant,setMarkImportant]=useState([{}]);
 
   const onChange = (e) => {
     setNewTask(e.target.value);
@@ -38,13 +40,29 @@ export default function App() {
             display: "inline",
             padding: "5px 30px",
             borderRadius: 7,
-            boxShadow: "2px 3px 3px"
+            boxShadow: "2px 3px 30px"
           }}
         >
           No tasks to show{" "}
         </h4>
       );
   };
+
+  // const toggleFunction=(key)=>{
+
+  //   if(MarkImportant[key].flag){
+  //     setMarkImportant((prev)=>(prev.filter((prev)=>{if(prev.key===key)prev[key]={color:'#f29c07',flag:false};})));
+
+  //   }
+  //   else{
+  //     setMarkImportant((prev)=>(prev.filter((prev)=>{if(prev.key===key)prev[key]={color:'#f29c07',
+  //   flag:true
+  //   };})));
+  //   }
+
+  //   // console.log(flag);
+  //   console.log(MarkImportant);
+  // }
 
   return (
     <div className="App">
@@ -98,10 +116,15 @@ export default function App() {
             <span
               style={{ display: "inline", position: "absolute", right: 10 }}
             >
+              {/* <FaStarOfDavid
+               onClick={()=> toggleFunction(index)}
+              className='MarkImportant'
+                style={MarkImportant[index]}
+              /> */}
               <FaTrashAlt
                 onClick={() => onDelete(task)}
                 style={{ cursor: "pointer" }}
-              />{" "}
+              />
             </span>
           </div>
         ))}
