@@ -76,7 +76,7 @@ export default function App() {
         <div>
           <input
             className="InputStyles"
-            type="text"
+            type="search"
             onChange={onChange}
             required
             autoFocus
